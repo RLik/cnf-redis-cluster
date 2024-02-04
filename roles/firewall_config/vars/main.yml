@@ -1,0 +1,11 @@
+---
+# List of allowed TCP ports
+# Galera Cluster firewall rules - https://galeracluster.com/library/documentation/firewall-settings.html
+allowed_tcp_ports:
+  - 22
+  - 80
+  - 10050
+
+# List of allowed UDP ports
+allowed_udp_ports:
+  - 161
