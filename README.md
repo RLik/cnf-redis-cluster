@@ -27,20 +27,20 @@ ssh-copy-id roman@10.10.10.29
 ```
 - [ ] Add sudo password for all hosts.
 ```
-sudo nano /etc/ansible/vault/galera.yml
+sudo nano /etc/ansible/vault/redis.yml
 ```
-Format is:
+Format is (replace passwort to yours):
 ```
 ansible_sudo_pass: P@$$word
 ```
 - [ ] Encrypt file with sudo password by Ansible Vault:
 ```
-sudo ansible-vault encrypt /etc/ansible/vault/galera.yml
+sudo ansible-vault encrypt /etc/ansible/vault/redis.yml
 ```
 - [ ] Give rights to read sudo password file only to root and gitlab-runner users:
 ```
-sudo chown root:gitlab-runner /etc/ansible/vault/galera.yml
-sudo chmod 640 /etc/ansible/vault/galera.yml
+sudo chown root:gitlab-runner /etc/ansible/vault/redis.yml
+sudo chmod 640 /etc/ansible/vault/redis.yml
 sudo chmod 650 /etc/ansible/vault/
 ```
 
