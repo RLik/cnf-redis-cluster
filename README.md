@@ -1,6 +1,6 @@
 # Example of configuring Redis cluster server from box by GitLab pipeline
 
-I use this Ansile playbookas a base to configuring Galera Cluster MariaDB out of box for my labs using GitLab pipeline. Playbook was tested on followins OS: Ubuntu Server 22.04.
+I use this Ansile playbookas a base to configuring Redis clister out of box for my labs using GitLab pipeline. Playbook was tested on followins OS: Ubuntu Server 22.04.
 
 You can freely use this solution, but without any guarantee from the author.
 
