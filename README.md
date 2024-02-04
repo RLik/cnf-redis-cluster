@@ -1,4 +1,4 @@
-# Example of configuring Galera Cluster MariaDB server from box by GitLab pipeline
+# Example of configuring Redis cluster server from box by GitLab pipeline
 
 I use this Ansile playbookas a base to configuring Galera Cluster MariaDB out of box for my labs using GitLab pipeline. Playbook was tested on followins OS: Ubuntu Server 22.04.
 
@@ -15,7 +15,7 @@ I use GitLab CE server with local shell agent and Ansible installed. GitLab runn
 sudo su - gitlab-runner
 ```
 - [ ] Generate SSH keys if they wasn't generated early:
-```
+```Updates were rejected because a pushed branch tip is behind its remote
 ssh-keygen
 ```
 - [ ] Correct inventory file (inventory/inv.ini) and add appropriate hosts.
