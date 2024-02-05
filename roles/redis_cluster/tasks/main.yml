@@ -1,0 +1,19 @@
+---
+- name: Install redis server
+  package:
+    name: "redis"
+
+- name: Copy Redis server config files
+  template:
+    src: "redis.conf.j2"
+    dest: "/etc/redis/redis.conf"
+    force: true
+
+- name: Restart Redisa service
+  service:
+    name: "redis"
+    state: "restarted"
+
+- name: Create Redis cluster
+  command: "redis-cli --cluster create {{ first_node_ip }}:{{ redis_port }} {{ second_node_ip }}:{{ redis_port }} {{third_node_ip}}:{{ redis_port }} --cluster-yes"
+  run_once: true

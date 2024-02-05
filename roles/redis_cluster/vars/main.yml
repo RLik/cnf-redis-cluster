@@ -1,0 +1,5 @@
+---
+first_node_ip: 10.10.10.31
+second_node_ip: 10.10.10.30
+third_node_ip: 10.10.10.29
+redis_port: 6379
