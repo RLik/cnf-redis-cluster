@@ -9,11 +9,25 @@
     dest: "/etc/redis/redis.conf"
     force: true
 
-- name: Restart Redisa service
+- name: Ensure that parametr exists
+  lineinfile:
+    path: /etc/sysctl/d/99-sysctl.conf
+    line: "vm.overcommit_memory = 1"
+    create: yes
+
+- name: Set parametr overcommit_memory online
+  shell: sysctl vm.overcommit_memory=1
+
+- name: Restart Redis service
   service:
     name: "redis"
     state: "restarted"
 
+- name: Check if Redis cluster already exists
+  shell: redis-cli -h 10.10.10.31 cluster nodes | wc -l
+  register: redis_cluster_nodes
+
 - name: Create Redis cluster
   command: "redis-cli --cluster create {{ first_node_ip }}:{{ redis_port }} {{ second_node_ip }}:{{ redis_port }} {{third_node_ip}}:{{ redis_port }} --cluster-yes"
   run_once: true
+  when: "redis_cluster_nodes.stdout_lines == ['1']"
